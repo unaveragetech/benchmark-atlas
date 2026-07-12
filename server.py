@@ -144,6 +144,13 @@ if __name__ == "__main__":
     import argparse
     import uvicorn
 
+    # Windowed PyInstaller builds expose no stdout/stderr. Give libraries safe
+    # sinks so their startup diagnostics never crash the app process.
+    if sys.stdout is None:
+        sys.stdout = open(os.devnull, "w", encoding="utf-8")
+    if sys.stderr is None:
+        sys.stderr = open(os.devnull, "w", encoding="utf-8")
+
     parser = argparse.ArgumentParser(description="Run Benchmark Atlas locally.")
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", default=8000, type=int)
@@ -153,4 +160,12 @@ if __name__ == "__main__":
         # Delay allows the local server to become reachable before opening the UI.
         import threading
         threading.Timer(1.0, lambda: webbrowser.open(f"http://{args.host}:{args.port}")).start()
-    uvicorn.run(app, host=args.host, port=args.port)
+    # Disable console logging so the packaged windowless launcher can run without
+    # a command window while continuing to serve the browser dashboard.
+    uvicorn.run(
+        app,
+        host=args.host,
+        port=args.port,
+        log_config={"version": 1, "disable_existing_loggers": False},
+        access_log=False,
+    )
