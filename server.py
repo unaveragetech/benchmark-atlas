@@ -9,6 +9,7 @@ import sys
 import webbrowser
 import os
 from urllib.request import urlopen
+from urllib.request import Request
 
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
@@ -20,6 +21,7 @@ ROOT = Path(getattr(sys, "_MEIPASS", Path(__file__).parent))
 DATA_FILE = ROOT / "data" / "benchmarks.json"
 PACKS_DIR = ROOT / "benchmarks"
 REPOSITORY_URL = os.getenv("BENCHMARK_REPOSITORY_URL", "").rstrip("/")
+MODEL_ENDPOINT = os.getenv("MODEL_ENDPOINT_URL", "").rstrip("/")
 started = time.time()
 api_enabled = True
 
@@ -42,6 +44,11 @@ class Answer(BaseModel):
     answer: str
 
 
+class ClientConfig(BaseModel):
+    atlas_url: str = ""
+    model_endpoint: str = ""
+
+
 @app.get("/", include_in_schema=False)
 def home():
     return FileResponse(ROOT / "web" / "index.html")
@@ -57,6 +64,45 @@ def health():
 def source():
     return {"mode": "github" if REPOSITORY_URL else "bundled", "repository": REPOSITORY_URL or None,
             "format": "category JSONL"}
+
+
+@app.get("/api/config")
+def config():
+    return {"atlas_url": REPOSITORY_URL, "model_endpoint": MODEL_ENDPOINT}
+
+
+@app.post("/api/config")
+def update_config(config: ClientConfig):
+    global REPOSITORY_URL, MODEL_ENDPOINT
+    REPOSITORY_URL = config.atlas_url.rstrip("/")
+    MODEL_ENDPOINT = config.model_endpoint.rstrip("/")
+    # Validate the Atlas source immediately, so a bad URL is never silently saved.
+    if REPOSITORY_URL:
+        try:
+            load_benchmarks()
+        except Exception as exc:
+            REPOSITORY_URL = ""
+            raise HTTPException(400, f"Could not load Atlas manifest: {exc}")
+    return {"atlas_url": REPOSITORY_URL, "model_endpoint": MODEL_ENDPOINT}
+
+
+@app.post("/api/benchmarks/{benchmark_id}/run-model")
+def run_model(benchmark_id: str):
+    if not MODEL_ENDPOINT:
+        raise HTTPException(400, "Set a model endpoint in Client settings first.")
+    item = next((x for x in load_benchmarks() if x["id"] == benchmark_id), None)
+    if not item:
+        raise HTTPException(404, "Benchmark not found")
+    payload = {"model": "benchmark-client", "messages": [
+        {"role": "system", "content": "Answer only with a comma-separated answer. Do not explain."},
+        {"role": "user", "content": item["prompt"]}], "temperature": 0}
+    try:
+        request = Request(MODEL_ENDPOINT, data=json.dumps(payload).encode(), headers={"Content-Type": "application/json"}, method="POST")
+        response = json.loads(urlopen(request, timeout=45).read())
+        answer = response["choices"][0]["message"]["content"].strip()
+    except Exception as exc:
+        raise HTTPException(502, f"Model endpoint failed: {exc}")
+    return {"answer": answer, "benchmark_id": benchmark_id}
 
 
 @app.post("/api/control/start")
