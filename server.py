@@ -135,6 +135,10 @@ def models():
             provider = "openai-compatible"
         return {"provider": provider, "models": names, "details": details, "selected": MODEL_NAME}
     except Exception as exc:
+        if MODEL_NAME:
+            return {"provider": "custom-compatible", "models": [MODEL_NAME],
+                    "details": [{"name": MODEL_NAME}], "selected": MODEL_NAME,
+                    "warning": f"Automatic discovery is unavailable; using the configured model. {exc}"}
         raise HTTPException(502, f"Could not discover models: {exc}")
 
 
