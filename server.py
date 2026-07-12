@@ -9,6 +9,8 @@ import sys
 import webbrowser
 import os
 import re
+import threading
+import uuid
 from urllib.request import urlopen
 from urllib.request import Request
 
@@ -39,6 +41,8 @@ MODEL_ENDPOINT = os.getenv("MODEL_ENDPOINT_URL", saved_settings.get("model_endpo
 MODEL_NAME = os.getenv("MODEL_NAME", saved_settings.get("model_name", ""))
 started = time.time()
 api_enabled = True
+RUNS = {}
+RUNS_LOCK = threading.Lock()
 
 app = FastAPI(title="Benchmark Atlas API", version="1.0.0", description="A practical common-facts benchmark API.")
 app.mount("/assets", StaticFiles(directory=ROOT / "web"), name="assets")
@@ -63,6 +67,10 @@ class ClientConfig(BaseModel):
     atlas_url: str = DEFAULT_ATLAS_URL
     model_endpoint: str = DEFAULT_MODEL_ENDPOINT
     model_name: str = ""
+
+
+class CategoryRun(BaseModel):
+    category: str
 
 
 @app.get("/", include_in_schema=False)
@@ -147,6 +155,65 @@ def run_model(benchmark_id: str):
     except Exception as exc:
         raise HTTPException(502, f"Model endpoint failed: {exc}")
     return {"answer": answer, "benchmark_id": benchmark_id}
+
+
+def call_model(item):
+    if not MODEL_ENDPOINT or not MODEL_NAME:
+        raise RuntimeError("Configure and select a model first.")
+    payload = {"model": MODEL_NAME, "messages": [
+        {"role": "system", "content": "Answer only with the requested fact. Do not explain."},
+        {"role": "user", "content": item["prompt"]}], "temperature": 0, "stream": False}
+    request = Request(MODEL_ENDPOINT, data=json.dumps(payload).encode(),
+                      headers={"Content-Type": "application/json"}, method="POST")
+    response = json.loads(urlopen(request, timeout=90).read())
+    return (response["message"]["content"] if "message" in response
+            else response["choices"][0]["message"]["content"]).strip()
+
+
+def run_category_job(run_id, category):
+    items = [item for item in load_benchmarks() if item["category"].casefold() == category.casefold()]
+    with RUNS_LOCK:
+        RUNS[run_id].update(total=len(items), status="running")
+    for index, item in enumerate(items, 1):
+        try:
+            response = call_model(item)
+            expected = [value.strip().casefold() for value in item["answer"]]
+            provided = [value.strip().casefold() for value in re.split(r"[;\n,]+", response) if value.strip()]
+            correct = sum(a == b for a, b in zip(expected, provided))
+            result = {"id": item["id"], "prompt": item["prompt"], "response": response,
+                      "expected": item["answer"], "score": round(correct / len(expected) * 100)}
+        except Exception as exc:
+            result = {"id": item["id"], "prompt": item["prompt"], "response": "",
+                      "expected": item["answer"], "score": 0, "error": str(exc)}
+        with RUNS_LOCK:
+            job = RUNS[run_id]
+            job["results"].append(result)
+            job["completed"] = index
+            job["score"] = round(sum(row["score"] for row in job["results"]) / index)
+    with RUNS_LOCK:
+        RUNS[run_id]["status"] = "complete"
+
+
+@app.post("/api/runs")
+def start_category_run(request: CategoryRun):
+    categories = {item["category"].casefold(): item["category"] for item in load_benchmarks()}
+    category = categories.get(request.category.casefold())
+    if not category:
+        raise HTTPException(404, "Category not found")
+    if not MODEL_NAME:
+        raise HTTPException(400, "Select a model in Client settings first.")
+    run_id = uuid.uuid4().hex
+    RUNS[run_id] = {"id": run_id, "category": category, "model": MODEL_NAME, "status": "queued",
+                    "completed": 0, "total": 0, "score": 0, "results": []}
+    threading.Thread(target=run_category_job, args=(run_id, category), daemon=True).start()
+    return RUNS[run_id]
+
+
+@app.get("/api/runs/{run_id}")
+def category_run_status(run_id: str):
+    if run_id not in RUNS:
+        raise HTTPException(404, "Run not found")
+    return RUNS[run_id]
 
 
 @app.post("/api/control/start")
