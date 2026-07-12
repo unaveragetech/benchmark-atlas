@@ -1,0 +1,25 @@
+{
+  "format": "benchmark-atlas-jsonl/v1",
+  "packs": [
+    {
+      "category": "History",
+      "path": "history/core.jsonl",
+      "count": 50
+    },
+    {
+      "category": "Science",
+      "path": "science/core.jsonl",
+      "count": 50
+    },
+    {
+      "category": "Geography",
+      "path": "geography/core.jsonl",
+      "count": 50
+    },
+    {
+      "category": "Civics",
+      "path": "civics/core.jsonl",
+      "count": 50
+    }
+  ]
+}

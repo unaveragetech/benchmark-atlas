@@ -1,0 +1,50 @@
+{"id": "history-001", "title": "History fact 1", "category": "History", "difficulty": "Core", "prompt": "What is the first U.S. president?", "answer": ["George Washington"]}
+{"id": "history-002", "title": "History fact 2", "category": "History", "difficulty": "Core", "prompt": "Name the first U.S. president.", "answer": ["George Washington"]}
+{"id": "history-003", "title": "History fact 3", "category": "History", "difficulty": "Core", "prompt": "What is the president who issued the Emancipation Proclamation?", "answer": ["Abraham Lincoln"]}
+{"id": "history-004", "title": "History fact 4", "category": "History", "difficulty": "Core", "prompt": "Name the president who issued the Emancipation Proclamation.", "answer": ["Abraham Lincoln"]}
+{"id": "history-005", "title": "History fact 5", "category": "History", "difficulty": "Core", "prompt": "What is the principal Declaration of Independence author?", "answer": ["Thomas Jefferson"]}
+{"id": "history-006", "title": "History fact 6", "category": "History", "difficulty": "Core", "prompt": "Name the principal Declaration of Independence author.", "answer": ["Thomas Jefferson"]}
+{"id": "history-007", "title": "History fact 7", "category": "History", "difficulty": "Core", "prompt": "What is the principal Constitution author?", "answer": ["James Madison"]}
+{"id": "history-008", "title": "History fact 8", "category": "History", "difficulty": "Core", "prompt": "Name the principal Constitution author.", "answer": ["James Madison"]}
+{"id": "history-009", "title": "History fact 9", "category": "History", "difficulty": "Core", "prompt": "What is the year the Declaration was adopted?", "answer": ["1776"]}
+{"id": "history-010", "title": "History fact 10", "category": "History", "difficulty": "Core", "prompt": "Name the year the Declaration was adopted.", "answer": ["1776"]}
+{"id": "history-011", "title": "History fact 11", "category": "History", "difficulty": "Core", "prompt": "What is the year the U.S. Civil War began?", "answer": ["1861"]}
+{"id": "history-012", "title": "History fact 12", "category": "History", "difficulty": "Core", "prompt": "Name the year the U.S. Civil War began.", "answer": ["1861"]}
+{"id": "history-013", "title": "History fact 13", "category": "History", "difficulty": "Core", "prompt": "What is the year World War II ended?", "answer": ["1945"]}
+{"id": "history-014", "title": "History fact 14", "category": "History", "difficulty": "Core", "prompt": "Name the year World War II ended.", "answer": ["1945"]}
+{"id": "history-015", "title": "History fact 15", "category": "History", "difficulty": "Core", "prompt": "What is the year the Berlin Wall fell?", "answer": ["1989"]}
+{"id": "history-016", "title": "History fact 16", "category": "History", "difficulty": "Core", "prompt": "Name the year the Berlin Wall fell.", "answer": ["1989"]}
+{"id": "history-017", "title": "History fact 17", "category": "History", "difficulty": "Core", "prompt": "What is the civil-rights leader who gave the I Have a Dream speech?", "answer": ["Martin Luther King Jr."]}
+{"id": "history-018", "title": "History fact 18", "category": "History", "difficulty": "Core", "prompt": "Name the civil-rights leader who gave the I Have a Dream speech.", "answer": ["Martin Luther King Jr."]}
+{"id": "history-019", "title": "History fact 19", "category": "History", "difficulty": "Core", "prompt": "What is the Indian independence leader known for nonviolence?", "answer": ["Mahatma Gandhi"]}
+{"id": "history-020", "title": "History fact 20", "category": "History", "difficulty": "Core", "prompt": "Name the Indian independence leader known for nonviolence.", "answer": ["Mahatma Gandhi"]}
+{"id": "history-021", "title": "History fact 21", "category": "History", "difficulty": "Core", "prompt": "What is the British prime minister during most of World War II?", "answer": ["Winston Churchill"]}
+{"id": "history-022", "title": "History fact 22", "category": "History", "difficulty": "Core", "prompt": "Name the British prime minister during most of World War II.", "answer": ["Winston Churchill"]}
+{"id": "history-023", "title": "History fact 23", "category": "History", "difficulty": "Core", "prompt": "What is the Soviet leader during World War II?", "answer": ["Joseph Stalin"]}
+{"id": "history-024", "title": "History fact 24", "category": "History", "difficulty": "Core", "prompt": "Name the Soviet leader during World War II.", "answer": ["Joseph Stalin"]}
+{"id": "history-025", "title": "History fact 25", "category": "History", "difficulty": "Core", "prompt": "What is the treaty ending World War I?", "answer": ["Treaty of Versailles"]}
+{"id": "history-026", "title": "History fact 26", "category": "History", "difficulty": "Core", "prompt": "Name the treaty ending World War I.", "answer": ["Treaty of Versailles"]}
+{"id": "history-027", "title": "History fact 27", "category": "History", "difficulty": "Core", "prompt": "What is the 1215 document limiting English royal power?", "answer": ["Magna Carta"]}
+{"id": "history-028", "title": "History fact 28", "category": "History", "difficulty": "Core", "prompt": "Name the 1215 document limiting English royal power.", "answer": ["Magna Carta"]}
+{"id": "history-029", "title": "History fact 29", "category": "History", "difficulty": "Core", "prompt": "What is the 14th-century European pandemic?", "answer": ["Black Death"]}
+{"id": "history-030", "title": "History fact 30", "category": "History", "difficulty": "Core", "prompt": "Name the 14th-century European pandemic.", "answer": ["Black Death"]}
+{"id": "history-031", "title": "History fact 31", "category": "History", "difficulty": "Core", "prompt": "What is the trade route linking China and the Mediterranean?", "answer": ["Silk Road"]}
+{"id": "history-032", "title": "History fact 32", "category": "History", "difficulty": "Core", "prompt": "Name the trade route linking China and the Mediterranean.", "answer": ["Silk Road"]}
+{"id": "history-033", "title": "History fact 33", "category": "History", "difficulty": "Core", "prompt": "What is the Roman city buried by Vesuvius?", "answer": ["Pompeii"]}
+{"id": "history-034", "title": "History fact 34", "category": "History", "difficulty": "Core", "prompt": "Name the Roman city buried by Vesuvius.", "answer": ["Pompeii"]}
+{"id": "history-035", "title": "History fact 35", "category": "History", "difficulty": "Core", "prompt": "What is the civilization that built Machu Picchu?", "answer": ["Inca"]}
+{"id": "history-036", "title": "History fact 36", "category": "History", "difficulty": "Core", "prompt": "Name the civilization that built Machu Picchu.", "answer": ["Inca"]}
+{"id": "history-037", "title": "History fact 37", "category": "History", "difficulty": "Core", "prompt": "What is the 1949 collective-defense alliance?", "answer": ["NATO"]}
+{"id": "history-038", "title": "History fact 38", "category": "History", "difficulty": "Core", "prompt": "Name the 1949 collective-defense alliance.", "answer": ["NATO"]}
+{"id": "history-039", "title": "History fact 39", "category": "History", "difficulty": "Core", "prompt": "What is the case ending legal school segregation?", "answer": ["Brown v. Board of Education"]}
+{"id": "history-040", "title": "History fact 40", "category": "History", "difficulty": "Core", "prompt": "Name the case ending legal school segregation.", "answer": ["Brown v. Board of Education"]}
+{"id": "history-041", "title": "History fact 41", "category": "History", "difficulty": "Core", "prompt": "What is the Napoleon’s final defeat?", "answer": ["Waterloo"]}
+{"id": "history-042", "title": "History fact 42", "category": "History", "difficulty": "Core", "prompt": "Name the Napoleon’s final defeat.", "answer": ["Waterloo"]}
+{"id": "history-043", "title": "History fact 43", "category": "History", "difficulty": "Core", "prompt": "What is the ship carrying Pilgrims in 1620?", "answer": ["Mayflower"]}
+{"id": "history-044", "title": "History fact 44", "category": "History", "difficulty": "Core", "prompt": "Name the ship carrying Pilgrims in 1620.", "answer": ["Mayflower"]}
+{"id": "history-045", "title": "History fact 45", "category": "History", "difficulty": "Core", "prompt": "What is the first permanent English settlement?", "answer": ["Jamestown"]}
+{"id": "history-046", "title": "History fact 46", "category": "History", "difficulty": "Core", "prompt": "Name the first permanent English settlement.", "answer": ["Jamestown"]}
+{"id": "history-047", "title": "History fact 47", "category": "History", "difficulty": "Core", "prompt": "What is the first person to walk on the Moon?", "answer": ["Neil Armstrong"]}
+{"id": "history-048", "title": "History fact 48", "category": "History", "difficulty": "Core", "prompt": "Name the first person to walk on the Moon.", "answer": ["Neil Armstrong"]}
+{"id": "history-049", "title": "History fact 49", "category": "History", "difficulty": "Core", "prompt": "What is the scientist who discovered penicillin?", "answer": ["Alexander Fleming"]}
+{"id": "history-050", "title": "History fact 50", "category": "History", "difficulty": "Core", "prompt": "Name the scientist who discovered penicillin.", "answer": ["Alexander Fleming"]}

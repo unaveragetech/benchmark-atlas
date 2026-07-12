@@ -1,0 +1,50 @@
+{"id": "science-001", "title": "Science fact 1", "category": "Science", "difficulty": "Core", "prompt": "What is the chemical symbol for gold?", "answer": ["Au"]}
+{"id": "science-002", "title": "Science fact 2", "category": "Science", "difficulty": "Core", "prompt": "Name the chemical symbol for gold.", "answer": ["Au"]}
+{"id": "science-003", "title": "Science fact 3", "category": "Science", "difficulty": "Core", "prompt": "What is the chemical symbol for sodium?", "answer": ["Na"]}
+{"id": "science-004", "title": "Science fact 4", "category": "Science", "difficulty": "Core", "prompt": "Name the chemical symbol for sodium.", "answer": ["Na"]}
+{"id": "science-005", "title": "Science fact 5", "category": "Science", "difficulty": "Core", "prompt": "What is the atomic number of carbon?", "answer": ["6"]}
+{"id": "science-006", "title": "Science fact 6", "category": "Science", "difficulty": "Core", "prompt": "Name the atomic number of carbon.", "answer": ["6"]}
+{"id": "science-007", "title": "Science fact 7", "category": "Science", "difficulty": "Core", "prompt": "What is the gas plants absorb for photosynthesis?", "answer": ["Carbon dioxide"]}
+{"id": "science-008", "title": "Science fact 8", "category": "Science", "difficulty": "Core", "prompt": "Name the gas plants absorb for photosynthesis.", "answer": ["Carbon dioxide"]}
+{"id": "science-009", "title": "Science fact 9", "category": "Science", "difficulty": "Core", "prompt": "What is the most abundant atmospheric gas?", "answer": ["Nitrogen"]}
+{"id": "science-010", "title": "Science fact 10", "category": "Science", "difficulty": "Core", "prompt": "Name the most abundant atmospheric gas.", "answer": ["Nitrogen"]}
+{"id": "science-011", "title": "Science fact 11", "category": "Science", "difficulty": "Core", "prompt": "What is the pH of a neutral solution?", "answer": ["7"]}
+{"id": "science-012", "title": "Science fact 12", "category": "Science", "difficulty": "Core", "prompt": "Name the pH of a neutral solution.", "answer": ["7"]}
+{"id": "science-013", "title": "Science fact 13", "category": "Science", "difficulty": "Core", "prompt": "What is the planet closest to the Sun?", "answer": ["Mercury"]}
+{"id": "science-014", "title": "Science fact 14", "category": "Science", "difficulty": "Core", "prompt": "Name the planet closest to the Sun.", "answer": ["Mercury"]}
+{"id": "science-015", "title": "Science fact 15", "category": "Science", "difficulty": "Core", "prompt": "What is the largest planet?", "answer": ["Jupiter"]}
+{"id": "science-016", "title": "Science fact 16", "category": "Science", "difficulty": "Core", "prompt": "Name the largest planet.", "answer": ["Jupiter"]}
+{"id": "science-017", "title": "Science fact 17", "category": "Science", "difficulty": "Core", "prompt": "What is the Red Planet?", "answer": ["Mars"]}
+{"id": "science-018", "title": "Science fact 18", "category": "Science", "difficulty": "Core", "prompt": "Name the Red Planet.", "answer": ["Mars"]}
+{"id": "science-019", "title": "Science fact 19", "category": "Science", "difficulty": "Core", "prompt": "What is the planet famous for rings?", "answer": ["Saturn"]}
+{"id": "science-020", "title": "Science fact 20", "category": "Science", "difficulty": "Core", "prompt": "Name the planet famous for rings.", "answer": ["Saturn"]}
+{"id": "science-021", "title": "Science fact 21", "category": "Science", "difficulty": "Core", "prompt": "What is the force keeping planets in orbit?", "answer": ["Gravity"]}
+{"id": "science-022", "title": "Science fact 22", "category": "Science", "difficulty": "Core", "prompt": "Name the force keeping planets in orbit.", "answer": ["Gravity"]}
+{"id": "science-023", "title": "Science fact 23", "category": "Science", "difficulty": "Core", "prompt": "What is the galaxy containing our solar system?", "answer": ["Milky Way"]}
+{"id": "science-024", "title": "Science fact 24", "category": "Science", "difficulty": "Core", "prompt": "Name the galaxy containing our solar system.", "answer": ["Milky Way"]}
+{"id": "science-025", "title": "Science fact 25", "category": "Science", "difficulty": "Core", "prompt": "What is the organ that pumps blood?", "answer": ["Heart"]}
+{"id": "science-026", "title": "Science fact 26", "category": "Science", "difficulty": "Core", "prompt": "Name the organ that pumps blood.", "answer": ["Heart"]}
+{"id": "science-027", "title": "Science fact 27", "category": "Science", "difficulty": "Core", "prompt": "What is the largest human organ?", "answer": ["Skin"]}
+{"id": "science-028", "title": "Science fact 28", "category": "Science", "difficulty": "Core", "prompt": "Name the largest human organ.", "answer": ["Skin"]}
+{"id": "science-029", "title": "Science fact 29", "category": "Science", "difficulty": "Core", "prompt": "What is the molecule carrying genetic instructions?", "answer": ["DNA"]}
+{"id": "science-030", "title": "Science fact 30", "category": "Science", "difficulty": "Core", "prompt": "Name the molecule carrying genetic instructions.", "answer": ["DNA"]}
+{"id": "science-031", "title": "Science fact 31", "category": "Science", "difficulty": "Core", "prompt": "What is the basic unit of life?", "answer": ["Cell"]}
+{"id": "science-032", "title": "Science fact 32", "category": "Science", "difficulty": "Core", "prompt": "Name the basic unit of life.", "answer": ["Cell"]}
+{"id": "science-033", "title": "Science fact 33", "category": "Science", "difficulty": "Core", "prompt": "What is the process plants use to make food?", "answer": ["Photosynthesis"]}
+{"id": "science-034", "title": "Science fact 34", "category": "Science", "difficulty": "Core", "prompt": "Name the process plants use to make food.", "answer": ["Photosynthesis"]}
+{"id": "science-035", "title": "Science fact 35", "category": "Science", "difficulty": "Core", "prompt": "What is the cell structure that contains DNA?", "answer": ["Nucleus"]}
+{"id": "science-036", "title": "Science fact 36", "category": "Science", "difficulty": "Core", "prompt": "Name the cell structure that contains DNA.", "answer": ["Nucleus"]}
+{"id": "science-037", "title": "Science fact 37", "category": "Science", "difficulty": "Core", "prompt": "What is the SI unit of force?", "answer": ["Newton"]}
+{"id": "science-038", "title": "Science fact 38", "category": "Science", "difficulty": "Core", "prompt": "Name the SI unit of force.", "answer": ["Newton"]}
+{"id": "science-039", "title": "Science fact 39", "category": "Science", "difficulty": "Core", "prompt": "What is the SI unit of electric current?", "answer": ["Ampere"]}
+{"id": "science-040", "title": "Science fact 40", "category": "Science", "difficulty": "Core", "prompt": "Name the SI unit of electric current.", "answer": ["Ampere"]}
+{"id": "science-041", "title": "Science fact 41", "category": "Science", "difficulty": "Core", "prompt": "What is the bending of light?", "answer": ["Refraction"]}
+{"id": "science-042", "title": "Science fact 42", "category": "Science", "difficulty": "Core", "prompt": "Name the bending of light.", "answer": ["Refraction"]}
+{"id": "science-043", "title": "Science fact 43", "category": "Science", "difficulty": "Core", "prompt": "What is the liquid-to-gas change?", "answer": ["Evaporation"]}
+{"id": "science-044", "title": "Science fact 44", "category": "Science", "difficulty": "Core", "prompt": "Name the liquid-to-gas change.", "answer": ["Evaporation"]}
+{"id": "science-045", "title": "Science fact 45", "category": "Science", "difficulty": "Core", "prompt": "What is the cloud type associated with thunderstorms?", "answer": ["Cumulonimbus"]}
+{"id": "science-046", "title": "Science fact 46", "category": "Science", "difficulty": "Core", "prompt": "Name the cloud type associated with thunderstorms.", "answer": ["Cumulonimbus"]}
+{"id": "science-047", "title": "Science fact 47", "category": "Science", "difficulty": "Core", "prompt": "What is the molten rock below Earth’s surface?", "answer": ["Magma"]}
+{"id": "science-048", "title": "Science fact 48", "category": "Science", "difficulty": "Core", "prompt": "Name the molten rock below Earth’s surface.", "answer": ["Magma"]}
+{"id": "science-049", "title": "Science fact 49", "category": "Science", "difficulty": "Core", "prompt": "What is the electrically neutral atomic particle?", "answer": ["Neutron"]}
+{"id": "science-050", "title": "Science fact 50", "category": "Science", "difficulty": "Core", "prompt": "Name the electrically neutral atomic particle.", "answer": ["Neutron"]}
