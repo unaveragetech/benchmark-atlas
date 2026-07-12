@@ -201,3 +201,32 @@ for category in extra:
     manifest["packs"].append({"category": category.title(), "path": f"{category}/core.jsonl",
                               "count": 50, "references": references[category]})
 manifest_path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+# Convert atomic source facts into ordered, multi-answer benchmark sets. Each
+# category retains 50 benchmarks, but every benchmark now evaluates a list of
+# five related facts rather than a single trivia item. Circular windows keep all
+# source facts represented evenly while producing deterministic, unique sets.
+for pack in manifest["packs"]:
+    path = ROOT / pack["path"]
+    source_rows = [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
+    assert len(source_rows) == 50, (pack["category"], len(source_rows))
+    if pack["category"].lower() in facts:
+        # The original core generator emitted two phrasings per fact. Use each
+        # fact once so list benchmarks never contain duplicate paraphrases.
+        source_rows = source_rows[::2]
+    list_rows = []
+    for index in range(50):
+        stride = 1 if index < len(source_rows) else 2
+        start = index % len(source_rows)
+        members = [source_rows[(start + offset * stride) % len(source_rows)] for offset in range(5)]
+        questions = " ".join(f"{number}. {member['prompt']}" for number, member in enumerate(members, 1))
+        list_rows.append({
+            "id": f"{pack['category'].lower()}-list-{index + 1:03}",
+            "title": f"{pack['category']} ordered set {index + 1}",
+            "category": pack["category"],
+            "difficulty": "Core" if index < 20 else "Standard" if index < 40 else "Challenge",
+            "prompt": f"Answer all five items in numbered order. Return a semicolon-separated list. {questions}",
+            "answer": [member["answer"][0] for member in members],
+            "ordered": True,
+        })
+    path.write_text("\n".join(json.dumps(row, ensure_ascii=False) for row in list_rows) + "\n", encoding="utf-8")

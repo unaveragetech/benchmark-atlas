@@ -8,6 +8,7 @@ import time
 import sys
 import webbrowser
 import os
+import re
 from urllib.request import urlopen
 from urllib.request import Request
 
@@ -134,7 +135,7 @@ def run_model(benchmark_id: str):
     if not MODEL_NAME:
         raise HTTPException(400, "Select a model in Client settings first.")
     payload = {"model": MODEL_NAME, "messages": [
-        {"role": "system", "content": "Answer only with a comma-separated answer. Do not explain."},
+        {"role": "system", "content": "Answer every requested item in order as a semicolon-separated list. Do not explain."},
         {"role": "user", "content": item["prompt"]}], "temperature": 0, "stream": False}
     try:
         request = Request(MODEL_ENDPOINT, data=json.dumps(payload).encode(), headers={"Content-Type": "application/json"}, method="POST")
@@ -176,7 +177,8 @@ def score(benchmark_id: str, submission: Answer):
     for item in load_benchmarks():
         if item["id"] == benchmark_id:
             expected = [x.strip().casefold() for x in item["answer"]]
-            provided = [x.strip().casefold() for x in submission.answer.replace(";", ",").split(",") if x.strip()]
+            separator = r"[;\n]+" if ";" in submission.answer or "\n" in submission.answer else r","
+            provided = [x.strip().casefold() for x in re.split(separator, submission.answer) if x.strip()]
             correct = sum(a == b for a, b in zip(expected, provided))
             return {"id": benchmark_id, "correct": correct, "total": len(expected),
                     "score": round(correct / len(expected) * 100), "expected": item["answer"]}
