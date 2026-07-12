@@ -1,0 +1,50 @@
+{"id": "mathematics-001", "title": "Mathematics question 1", "category": "Mathematics", "difficulty": "Core", "prompt": "What is 12 multiplied by 12?", "answer": ["144"]}
+{"id": "mathematics-002", "title": "Mathematics question 2", "category": "Mathematics", "difficulty": "Core", "prompt": "What is the square root of 169?", "answer": ["13"]}
+{"id": "mathematics-003", "title": "Mathematics question 3", "category": "Mathematics", "difficulty": "Core", "prompt": "What is 15 percent of 200?", "answer": ["30"]}
+{"id": "mathematics-004", "title": "Mathematics question 4", "category": "Mathematics", "difficulty": "Core", "prompt": "What is 7 cubed?", "answer": ["343"]}
+{"id": "mathematics-005", "title": "Mathematics question 5", "category": "Mathematics", "difficulty": "Core", "prompt": "What is the value of pi rounded to two decimal places?", "answer": ["3.14"]}
+{"id": "mathematics-006", "title": "Mathematics question 6", "category": "Mathematics", "difficulty": "Core", "prompt": "What is the sum of the interior angles of a triangle in degrees?", "answer": ["180"]}
+{"id": "mathematics-007", "title": "Mathematics question 7", "category": "Mathematics", "difficulty": "Core", "prompt": "How many degrees are in a right angle?", "answer": ["90"]}
+{"id": "mathematics-008", "title": "Mathematics question 8", "category": "Mathematics", "difficulty": "Core", "prompt": "What is the perimeter of a square with side length 6?", "answer": ["24"]}
+{"id": "mathematics-009", "title": "Mathematics question 9", "category": "Mathematics", "difficulty": "Core", "prompt": "What is the area of a rectangle 8 units long and 5 units wide?", "answer": ["40"]}
+{"id": "mathematics-010", "title": "Mathematics question 10", "category": "Mathematics", "difficulty": "Core", "prompt": "What is the area of a triangle with base 10 and height 6?", "answer": ["30"]}
+{"id": "mathematics-011", "title": "Mathematics question 11", "category": "Mathematics", "difficulty": "Core", "prompt": "What is the circumference formula for a circle of radius r?", "answer": ["2πr"]}
+{"id": "mathematics-012", "title": "Mathematics question 12", "category": "Mathematics", "difficulty": "Core", "prompt": "What is the area formula for a circle of radius r?", "answer": ["πr²"]}
+{"id": "mathematics-013", "title": "Mathematics question 13", "category": "Mathematics", "difficulty": "Core", "prompt": "What is the next prime number after 19?", "answer": ["23"]}
+{"id": "mathematics-014", "title": "Mathematics question 14", "category": "Mathematics", "difficulty": "Core", "prompt": "What is the greatest common divisor of 24 and 36?", "answer": ["12"]}
+{"id": "mathematics-015", "title": "Mathematics question 15", "category": "Mathematics", "difficulty": "Core", "prompt": "What is the least common multiple of 6 and 8?", "answer": ["24"]}
+{"id": "mathematics-016", "title": "Mathematics question 16", "category": "Mathematics", "difficulty": "Core", "prompt": "What fraction is equivalent to 0.75 in lowest terms?", "answer": ["3/4"]}
+{"id": "mathematics-017", "title": "Mathematics question 17", "category": "Mathematics", "difficulty": "Core", "prompt": "What decimal is equivalent to one eighth?", "answer": ["0.125"]}
+{"id": "mathematics-018", "title": "Mathematics question 18", "category": "Mathematics", "difficulty": "Core", "prompt": "What is 2 to the tenth power?", "answer": ["1024"]}
+{"id": "mathematics-019", "title": "Mathematics question 19", "category": "Mathematics", "difficulty": "Core", "prompt": "Solve for x: x plus 9 equals 17.", "answer": ["8"]}
+{"id": "mathematics-020", "title": "Mathematics question 20", "category": "Mathematics", "difficulty": "Core", "prompt": "Solve for x: 3x equals 27.", "answer": ["9"]}
+{"id": "mathematics-021", "title": "Mathematics question 21", "category": "Mathematics", "difficulty": "Core", "prompt": "What is the slope of the line y equals 2x plus 5?", "answer": ["2"]}
+{"id": "mathematics-022", "title": "Mathematics question 22", "category": "Mathematics", "difficulty": "Core", "prompt": "What is the y-intercept of y equals 3x minus 4?", "answer": ["-4"]}
+{"id": "mathematics-023", "title": "Mathematics question 23", "category": "Mathematics", "difficulty": "Core", "prompt": "What is the absolute value of minus 12?", "answer": ["12"]}
+{"id": "mathematics-024", "title": "Mathematics question 24", "category": "Mathematics", "difficulty": "Core", "prompt": "What is the additive inverse of 7?", "answer": ["-7"]}
+{"id": "mathematics-025", "title": "Mathematics question 25", "category": "Mathematics", "difficulty": "Core", "prompt": "What is the reciprocal of 5?", "answer": ["1/5"]}
+{"id": "mathematics-026", "title": "Mathematics question 26", "category": "Mathematics", "difficulty": "Core", "prompt": "How many sides does a hexagon have?", "answer": ["6"]}
+{"id": "mathematics-027", "title": "Mathematics question 27", "category": "Mathematics", "difficulty": "Core", "prompt": "How many sides does a dodecagon have?", "answer": ["12"]}
+{"id": "mathematics-028", "title": "Mathematics question 28", "category": "Mathematics", "difficulty": "Core", "prompt": "What is a polygon with eight sides called?", "answer": ["octagon"]}
+{"id": "mathematics-029", "title": "Mathematics question 29", "category": "Mathematics", "difficulty": "Core", "prompt": "What is the longest side of a right triangle called?", "answer": ["hypotenuse"]}
+{"id": "mathematics-030", "title": "Mathematics question 30", "category": "Mathematics", "difficulty": "Core", "prompt": "What theorem states that a squared plus b squared equals c squared for a right triangle?", "answer": ["Pythagorean theorem"]}
+{"id": "mathematics-031", "title": "Mathematics question 31", "category": "Mathematics", "difficulty": "Core", "prompt": "What is the median of 2, 4, 7, 9, and 12?", "answer": ["7"]}
+{"id": "mathematics-032", "title": "Mathematics question 32", "category": "Mathematics", "difficulty": "Core", "prompt": "What is the mean of 4, 6, 8, and 10?", "answer": ["7"]}
+{"id": "mathematics-033", "title": "Mathematics question 33", "category": "Mathematics", "difficulty": "Core", "prompt": "What is the mode of 1, 2, 2, 3, and 4?", "answer": ["2"]}
+{"id": "mathematics-034", "title": "Mathematics question 34", "category": "Mathematics", "difficulty": "Core", "prompt": "What is the probability of rolling a 6 on a fair six-sided die?", "answer": ["1/6"]}
+{"id": "mathematics-035", "title": "Mathematics question 35", "category": "Mathematics", "difficulty": "Core", "prompt": "What is the probability of heads on a fair coin toss?", "answer": ["1/2"]}
+{"id": "mathematics-036", "title": "Mathematics question 36", "category": "Mathematics", "difficulty": "Core", "prompt": "How many meters are in one kilometer?", "answer": ["1000"]}
+{"id": "mathematics-037", "title": "Mathematics question 37", "category": "Mathematics", "difficulty": "Core", "prompt": "How many centimeters are in one meter?", "answer": ["100"]}
+{"id": "mathematics-038", "title": "Mathematics question 38", "category": "Mathematics", "difficulty": "Core", "prompt": "What is 3.5 plus 2.75?", "answer": ["6.25"]}
+{"id": "mathematics-039", "title": "Mathematics question 39", "category": "Mathematics", "difficulty": "Core", "prompt": "What is 10 factorial?", "answer": ["3628800"]}
+{"id": "mathematics-040", "title": "Mathematics question 40", "category": "Mathematics", "difficulty": "Core", "prompt": "What is the derivative of x squared with respect to x?", "answer": ["2x"]}
+{"id": "mathematics-041", "title": "Mathematics question 41", "category": "Mathematics", "difficulty": "Core", "prompt": "What is the derivative of sin x with respect to x?", "answer": ["cos x"]}
+{"id": "mathematics-042", "title": "Mathematics question 42", "category": "Mathematics", "difficulty": "Core", "prompt": "What is the indefinite integral of 1 with respect to x?", "answer": ["x + C"]}
+{"id": "mathematics-043", "title": "Mathematics question 43", "category": "Mathematics", "difficulty": "Core", "prompt": "What is log base 10 of 1000?", "answer": ["3"]}
+{"id": "mathematics-044", "title": "Mathematics question 44", "category": "Mathematics", "difficulty": "Core", "prompt": "What is the binary representation of decimal 10?", "answer": ["1010"]}
+{"id": "mathematics-045", "title": "Mathematics question 45", "category": "Mathematics", "difficulty": "Core", "prompt": "What Roman numeral represents 50?", "answer": ["L"]}
+{"id": "mathematics-046", "title": "Mathematics question 46", "category": "Mathematics", "difficulty": "Core", "prompt": "What is the sum of the first five positive integers?", "answer": ["15"]}
+{"id": "mathematics-047", "title": "Mathematics question 47", "category": "Mathematics", "difficulty": "Core", "prompt": "Is zero an even or odd integer?", "answer": ["even"]}
+{"id": "mathematics-048", "title": "Mathematics question 48", "category": "Mathematics", "difficulty": "Core", "prompt": "What is the only even prime number?", "answer": ["2"]}
+{"id": "mathematics-049", "title": "Mathematics question 49", "category": "Mathematics", "difficulty": "Core", "prompt": "What is the golden ratio commonly denoted by?", "answer": ["phi"]}
+{"id": "mathematics-050", "title": "Mathematics question 50", "category": "Mathematics", "difficulty": "Core", "prompt": "What branch of mathematics studies rates of change and accumulation?", "answer": ["calculus"]}

@@ -1,0 +1,50 @@
+{"id": "computing-001", "title": "Computing question 1", "category": "Computing", "difficulty": "Core", "prompt": "What does CPU stand for?", "answer": ["Central Processing Unit"]}
+{"id": "computing-002", "title": "Computing question 2", "category": "Computing", "difficulty": "Core", "prompt": "What does RAM stand for?", "answer": ["Random Access Memory"]}
+{"id": "computing-003", "title": "Computing question 3", "category": "Computing", "difficulty": "Core", "prompt": "What does URL stand for?", "answer": ["Uniform Resource Locator"]}
+{"id": "computing-004", "title": "Computing question 4", "category": "Computing", "difficulty": "Core", "prompt": "What does HTTP stand for?", "answer": ["Hypertext Transfer Protocol"]}
+{"id": "computing-005", "title": "Computing question 5", "category": "Computing", "difficulty": "Core", "prompt": "What does HTTPS add to HTTP?", "answer": ["encryption"]}
+{"id": "computing-006", "title": "Computing question 6", "category": "Computing", "difficulty": "Core", "prompt": "What does DNS translate domain names into?", "answer": ["IP addresses"]}
+{"id": "computing-007", "title": "Computing question 7", "category": "Computing", "difficulty": "Core", "prompt": "What does HTML stand for?", "answer": ["Hypertext Markup Language"]}
+{"id": "computing-008", "title": "Computing question 8", "category": "Computing", "difficulty": "Core", "prompt": "What language is primarily used to style web pages?", "answer": ["CSS"]}
+{"id": "computing-009", "title": "Computing question 9", "category": "Computing", "difficulty": "Core", "prompt": "What language commonly adds interactivity to web pages?", "answer": ["JavaScript"]}
+{"id": "computing-010", "title": "Computing question 10", "category": "Computing", "difficulty": "Core", "prompt": "What binary digit values are possible?", "answer": ["0 and 1"]}
+{"id": "computing-011", "title": "Computing question 11", "category": "Computing", "difficulty": "Core", "prompt": "How many bits are in a byte?", "answer": ["8"]}
+{"id": "computing-012", "title": "Computing question 12", "category": "Computing", "difficulty": "Core", "prompt": "What is the hexadecimal value of decimal 15?", "answer": ["F"]}
+{"id": "computing-013", "title": "Computing question 13", "category": "Computing", "difficulty": "Core", "prompt": "What data structure uses last in, first out ordering?", "answer": ["stack"]}
+{"id": "computing-014", "title": "Computing question 14", "category": "Computing", "difficulty": "Core", "prompt": "What data structure uses first in, first out ordering?", "answer": ["queue"]}
+{"id": "computing-015", "title": "Computing question 15", "category": "Computing", "difficulty": "Core", "prompt": "What search algorithm repeatedly halves a sorted search interval?", "answer": ["binary search"]}
+{"id": "computing-016", "title": "Computing question 16", "category": "Computing", "difficulty": "Core", "prompt": "What is the worst-case time complexity of linear search?", "answer": ["O(n)"]}
+{"id": "computing-017", "title": "Computing question 17", "category": "Computing", "difficulty": "Core", "prompt": "What is the typical time complexity of lookup in a hash table?", "answer": ["O(1)"]}
+{"id": "computing-018", "title": "Computing question 18", "category": "Computing", "difficulty": "Core", "prompt": "What programming construct repeats a block of code?", "answer": ["loop"]}
+{"id": "computing-019", "title": "Computing question 19", "category": "Computing", "difficulty": "Core", "prompt": "What programming construct chooses between paths based on a condition?", "answer": ["conditional"]}
+{"id": "computing-020", "title": "Computing question 20", "category": "Computing", "difficulty": "Core", "prompt": "What is a named reusable block of code commonly called?", "answer": ["function"]}
+{"id": "computing-021", "title": "Computing question 21", "category": "Computing", "difficulty": "Core", "prompt": "What does API stand for?", "answer": ["Application Programming Interface"]}
+{"id": "computing-022", "title": "Computing question 22", "category": "Computing", "difficulty": "Core", "prompt": "What does JSON stand for?", "answer": ["JavaScript Object Notation"]}
+{"id": "computing-023", "title": "Computing question 23", "category": "Computing", "difficulty": "Core", "prompt": "What character begins a JSON object?", "answer": ["{"]}
+{"id": "computing-024", "title": "Computing question 24", "category": "Computing", "difficulty": "Core", "prompt": "What distributed version-control system was created by Linus Torvalds?", "answer": ["Git"]}
+{"id": "computing-025", "title": "Computing question 25", "category": "Computing", "difficulty": "Core", "prompt": "What Git command copies a remote repository locally?", "answer": ["git clone"]}
+{"id": "computing-026", "title": "Computing question 26", "category": "Computing", "difficulty": "Core", "prompt": "What Git command records staged changes?", "answer": ["git commit"]}
+{"id": "computing-027", "title": "Computing question 27", "category": "Computing", "difficulty": "Core", "prompt": "What SQL command retrieves rows from a database?", "answer": ["SELECT"]}
+{"id": "computing-028", "title": "Computing question 28", "category": "Computing", "difficulty": "Core", "prompt": "What database structure uniquely identifies a table row?", "answer": ["primary key"]}
+{"id": "computing-029", "title": "Computing question 29", "category": "Computing", "difficulty": "Core", "prompt": "What database operation combines rows from related tables?", "answer": ["join"]}
+{"id": "computing-030", "title": "Computing question 30", "category": "Computing", "difficulty": "Core", "prompt": "What does OS stand for in computing?", "answer": ["operating system"]}
+{"id": "computing-031", "title": "Computing question 31", "category": "Computing", "difficulty": "Core", "prompt": "Which operating-system component manages hardware and system resources?", "answer": ["kernel"]}
+{"id": "computing-032", "title": "Computing question 32", "category": "Computing", "difficulty": "Core", "prompt": "What protocol securely connects to a remote command shell?", "answer": ["SSH"]}
+{"id": "computing-033", "title": "Computing question 33", "category": "Computing", "difficulty": "Core", "prompt": "What does VPN stand for?", "answer": ["Virtual Private Network"]}
+{"id": "computing-034", "title": "Computing question 34", "category": "Computing", "difficulty": "Core", "prompt": "What security property ensures data was not altered?", "answer": ["integrity"]}
+{"id": "computing-035", "title": "Computing question 35", "category": "Computing", "difficulty": "Core", "prompt": "What process converts plaintext into unreadable ciphertext?", "answer": ["encryption"]}
+{"id": "computing-036", "title": "Computing question 36", "category": "Computing", "difficulty": "Core", "prompt": "What type of malware demands payment to restore access?", "answer": ["ransomware"]}
+{"id": "computing-037", "title": "Computing question 37", "category": "Computing", "difficulty": "Core", "prompt": "What is a secret used with a username to authenticate called?", "answer": ["password"]}
+{"id": "computing-038", "title": "Computing question 38", "category": "Computing", "difficulty": "Core", "prompt": "What extra security step beyond a password is abbreviated MFA?", "answer": ["multi-factor authentication"]}
+{"id": "computing-039", "title": "Computing question 39", "category": "Computing", "difficulty": "Core", "prompt": "What cloud model provides virtual machines and networking resources?", "answer": ["Infrastructure as a Service"]}
+{"id": "computing-040", "title": "Computing question 40", "category": "Computing", "difficulty": "Core", "prompt": "What does SaaS stand for?", "answer": ["Software as a Service"]}
+{"id": "computing-041", "title": "Computing question 41", "category": "Computing", "difficulty": "Core", "prompt": "What container platform uses images and Dockerfiles?", "answer": ["Docker"]}
+{"id": "computing-042", "title": "Computing question 42", "category": "Computing", "difficulty": "Core", "prompt": "What orchestration system is commonly used to manage containers at scale?", "answer": ["Kubernetes"]}
+{"id": "computing-043", "title": "Computing question 43", "category": "Computing", "difficulty": "Core", "prompt": "What is an isolated copy of a running program called?", "answer": ["process"]}
+{"id": "computing-044", "title": "Computing question 44", "category": "Computing", "difficulty": "Core", "prompt": "What smaller execution unit within a process is called?", "answer": ["thread"]}
+{"id": "computing-045", "title": "Computing question 45", "category": "Computing", "difficulty": "Core", "prompt": "What bug occurs when concurrent operations access shared data unpredictably?", "answer": ["race condition"]}
+{"id": "computing-046", "title": "Computing question 46", "category": "Computing", "difficulty": "Core", "prompt": "What technique stores results for faster reuse?", "answer": ["caching"]}
+{"id": "computing-047", "title": "Computing question 47", "category": "Computing", "difficulty": "Core", "prompt": "What response status code means HTTP Not Found?", "answer": ["404"]}
+{"id": "computing-048", "title": "Computing question 48", "category": "Computing", "difficulty": "Core", "prompt": "What HTTP method is conventionally used to retrieve a resource?", "answer": ["GET"]}
+{"id": "computing-049", "title": "Computing question 49", "category": "Computing", "difficulty": "Core", "prompt": "What HTTP method is conventionally used to create a resource?", "answer": ["POST"]}
+{"id": "computing-050", "title": "Computing question 50", "category": "Computing", "difficulty": "Core", "prompt": "What design style commonly exposes resources through HTTP endpoints?", "answer": ["REST"]}

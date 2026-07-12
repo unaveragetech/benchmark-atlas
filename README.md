@@ -24,7 +24,15 @@ The distributable is `dist/BenchmarkAtlas.exe`. Double-click it to start the loc
 
 ## Benchmark repository format
 
-The `benchmarks/` folder is repository-ready: each category has its own directory and a JSONL file with 50 entries. `benchmarks/manifest.json` is the discovery index.
+The `benchmarks/` folder is repository-ready: each category has its own directory and a JSONL file with 50 entries. `benchmarks/manifest.json` is the discovery index. The library currently includes History, Science, Geography, Civics, Mathematics, Computing, and Literature (350 questions total). Newer manifest entries may include a `references` array of authoritative sources used to verify the pack.
+
+Each JSONL row uses the stable `benchmark-atlas-jsonl/v1` contract:
+
+```json
+{"id":"mathematics-001","title":"Mathematics question 1","category":"Mathematics","difficulty":"Core","prompt":"What is 12 multiplied by 12?","answer":["144"]}
+```
+
+Run `python tools/build_packs.py` to regenerate the bundled packs and manifest. The generator asserts exactly 50 records per pack.
 
 To have the client pull packs from GitHub instead of its bundled copy, set `BENCHMARK_REPOSITORY_URL` to the repository's raw-content root, then run the app. For example:
 

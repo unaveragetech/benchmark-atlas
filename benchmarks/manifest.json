@@ -20,6 +20,34 @@
       "category": "Civics",
       "path": "civics/core.jsonl",
       "count": 50
+    },
+    {
+      "category": "Mathematics",
+      "path": "mathematics/core.jsonl",
+      "count": 50,
+      "references": [
+        "https://mathworld.wolfram.com/",
+        "https://www.nist.gov/pml/owm/si-units-length"
+      ]
+    },
+    {
+      "category": "Computing",
+      "path": "computing/core.jsonl",
+      "count": 50,
+      "references": [
+        "https://developer.mozilla.org/en-US/docs/Web",
+        "https://git-scm.com/docs",
+        "https://www.rfc-editor.org/"
+      ]
+    },
+    {
+      "category": "Literature",
+      "path": "literature/core.jsonl",
+      "count": 50,
+      "references": [
+        "https://www.loc.gov/books/",
+        "https://www.britannica.com/art/literature"
+      ]
     }
   ]
 }
