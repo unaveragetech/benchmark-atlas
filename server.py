@@ -122,13 +122,18 @@ def models():
             base = MODEL_ENDPOINT.split("/api/", 1)[0]
             response = json.loads(urlopen(f"{base}/api/tags", timeout=5).read())
             names = [item["name"] for item in response.get("models", [])]
+            details = [{"name": item["name"], "size": item.get("size"),
+                        "parameters": item.get("details", {}).get("parameter_size"),
+                        "quantization": item.get("details", {}).get("quantization_level"),
+                        "family": item.get("details", {}).get("family")} for item in response.get("models", [])]
             provider = "ollama"
         else:
             base = MODEL_ENDPOINT.rsplit("/chat/completions", 1)[0].rstrip("/")
             response = json.loads(urlopen(Request(f"{base}/models", headers={"Accept": "application/json"}), timeout=5).read())
             names = [item["id"] for item in response.get("data", [])]
+            details = [{"name": item["id"]} for item in response.get("data", [])]
             provider = "openai-compatible"
-        return {"provider": provider, "models": names, "selected": MODEL_NAME}
+        return {"provider": provider, "models": names, "details": details, "selected": MODEL_NAME}
     except Exception as exc:
         raise HTTPException(502, f"Could not discover models: {exc}")
 
@@ -175,23 +180,37 @@ def run_category_job(run_id, category):
     with RUNS_LOCK:
         RUNS[run_id].update(total=len(items), status="running")
     for index, item in enumerate(items, 1):
+        with RUNS_LOCK:
+            if RUNS[run_id].get("cancel_requested"):
+                RUNS[run_id]["status"] = "cancelled"
+                RUNS[run_id]["finished_at"] = datetime.now(timezone.utc).isoformat()
+                return
+        question_started = time.perf_counter()
         try:
             response = call_model(item)
             expected = [value.strip().casefold() for value in item["answer"]]
             provided = [value.strip().casefold() for value in re.split(r"[;\n,]+", response) if value.strip()]
             correct = sum(a == b for a, b in zip(expected, provided))
             result = {"id": item["id"], "prompt": item["prompt"], "response": response,
-                      "expected": item["answer"], "score": round(correct / len(expected) * 100)}
+                      "expected": item["answer"], "score": round(correct / len(expected) * 100),
+                      "latency_ms": round((time.perf_counter() - question_started) * 1000)}
         except Exception as exc:
             result = {"id": item["id"], "prompt": item["prompt"], "response": "",
-                      "expected": item["answer"], "score": 0, "error": str(exc)}
+                      "expected": item["answer"], "score": 0, "error": str(exc),
+                      "latency_ms": round((time.perf_counter() - question_started) * 1000)}
         with RUNS_LOCK:
             job = RUNS[run_id]
             job["results"].append(result)
             job["completed"] = index
             job["score"] = round(sum(row["score"] for row in job["results"]) / index)
+            job["correct"] = sum(row["score"] == 100 for row in job["results"])
+            job["incorrect"] = index - job["correct"]
+            job["average_latency_ms"] = round(sum(row["latency_ms"] for row in job["results"]) / index)
+            elapsed = max(time.time() - job["started_epoch"], 0.001)
+            job["questions_per_minute"] = round(index / elapsed * 60, 1)
     with RUNS_LOCK:
         RUNS[run_id]["status"] = "complete"
+        RUNS[run_id]["finished_at"] = datetime.now(timezone.utc).isoformat()
 
 
 @app.post("/api/runs")
@@ -204,7 +223,10 @@ def start_category_run(request: CategoryRun):
         raise HTTPException(400, "Select a model in Client settings first.")
     run_id = uuid.uuid4().hex
     RUNS[run_id] = {"id": run_id, "category": category, "model": MODEL_NAME, "status": "queued",
-                    "completed": 0, "total": 0, "score": 0, "results": []}
+                    "completed": 0, "total": 0, "score": 0, "correct": 0, "incorrect": 0,
+                    "average_latency_ms": 0, "questions_per_minute": 0, "results": [],
+                    "started_at": datetime.now(timezone.utc).isoformat(), "started_epoch": time.time(),
+                    "finished_at": None, "cancel_requested": False}
     threading.Thread(target=run_category_job, args=(run_id, category), daemon=True).start()
     return RUNS[run_id]
 
@@ -214,6 +236,20 @@ def category_run_status(run_id: str):
     if run_id not in RUNS:
         raise HTTPException(404, "Run not found")
     return RUNS[run_id]
+
+
+@app.get("/api/runs")
+def run_history():
+    runs = sorted(RUNS.values(), key=lambda item: item["started_at"], reverse=True)
+    return {"count": len(runs), "items": runs}
+
+
+@app.delete("/api/runs/{run_id}")
+def cancel_category_run(run_id: str):
+    if run_id not in RUNS:
+        raise HTTPException(404, "Run not found")
+    RUNS[run_id]["cancel_requested"] = True
+    return {"id": run_id, "status": "cancelling"}
 
 
 @app.post("/api/control/start")
