@@ -20,8 +20,22 @@ from pydantic import BaseModel
 ROOT = Path(getattr(sys, "_MEIPASS", Path(__file__).parent))
 DATA_FILE = ROOT / "data" / "benchmarks.json"
 PACKS_DIR = ROOT / "benchmarks"
-REPOSITORY_URL = os.getenv("BENCHMARK_REPOSITORY_URL", "").rstrip("/")
-MODEL_ENDPOINT = os.getenv("MODEL_ENDPOINT_URL", "").rstrip("/")
+DEFAULT_ATLAS_URL = "https://raw.githubusercontent.com/unaveragetech/benchmark-atlas/master/benchmarks"
+DEFAULT_MODEL_ENDPOINT = "http://127.0.0.1:11434/api/chat"
+SETTINGS_FILE = Path(os.getenv("APPDATA", Path.home())) / "BenchmarkAtlas" / "settings.json"
+
+
+def read_settings():
+    try:
+        return json.loads(SETTINGS_FILE.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {}
+
+
+saved_settings = read_settings()
+REPOSITORY_URL = os.getenv("BENCHMARK_REPOSITORY_URL", saved_settings.get("atlas_url", DEFAULT_ATLAS_URL)).rstrip("/")
+MODEL_ENDPOINT = os.getenv("MODEL_ENDPOINT_URL", saved_settings.get("model_endpoint", DEFAULT_MODEL_ENDPOINT)).rstrip("/")
+MODEL_NAME = os.getenv("MODEL_NAME", saved_settings.get("model_name", ""))
 started = time.time()
 api_enabled = True
 
@@ -45,8 +59,9 @@ class Answer(BaseModel):
 
 
 class ClientConfig(BaseModel):
-    atlas_url: str = ""
-    model_endpoint: str = ""
+    atlas_url: str = DEFAULT_ATLAS_URL
+    model_endpoint: str = DEFAULT_MODEL_ENDPOINT
+    model_name: str = ""
 
 
 @app.get("/", include_in_schema=False)
@@ -68,22 +83,45 @@ def source():
 
 @app.get("/api/config")
 def config():
-    return {"atlas_url": REPOSITORY_URL, "model_endpoint": MODEL_ENDPOINT}
+    return {"atlas_url": REPOSITORY_URL, "model_endpoint": MODEL_ENDPOINT, "model_name": MODEL_NAME}
 
 
 @app.post("/api/config")
 def update_config(config: ClientConfig):
-    global REPOSITORY_URL, MODEL_ENDPOINT
+    global REPOSITORY_URL, MODEL_ENDPOINT, MODEL_NAME
+    previous_url = REPOSITORY_URL
     REPOSITORY_URL = config.atlas_url.rstrip("/")
     MODEL_ENDPOINT = config.model_endpoint.rstrip("/")
+    MODEL_NAME = config.model_name.strip()
     # Validate the Atlas source immediately, so a bad URL is never silently saved.
     if REPOSITORY_URL:
         try:
             load_benchmarks()
         except Exception as exc:
-            REPOSITORY_URL = ""
+            REPOSITORY_URL = previous_url
             raise HTTPException(400, f"Could not load Atlas manifest: {exc}")
-    return {"atlas_url": REPOSITORY_URL, "model_endpoint": MODEL_ENDPOINT}
+    SETTINGS_FILE.parent.mkdir(parents=True, exist_ok=True)
+    SETTINGS_FILE.write_text(json.dumps({"atlas_url": REPOSITORY_URL, "model_endpoint": MODEL_ENDPOINT,
+                                         "model_name": MODEL_NAME}, indent=2), encoding="utf-8")
+    return {"atlas_url": REPOSITORY_URL, "model_endpoint": MODEL_ENDPOINT, "model_name": MODEL_NAME}
+
+
+@app.get("/api/models")
+def models():
+    try:
+        if "/api/" in MODEL_ENDPOINT:
+            base = MODEL_ENDPOINT.split("/api/", 1)[0]
+            response = json.loads(urlopen(f"{base}/api/tags", timeout=5).read())
+            names = [item["name"] for item in response.get("models", [])]
+            provider = "ollama"
+        else:
+            base = MODEL_ENDPOINT.rsplit("/chat/completions", 1)[0].rstrip("/")
+            response = json.loads(urlopen(Request(f"{base}/models", headers={"Accept": "application/json"}), timeout=5).read())
+            names = [item["id"] for item in response.get("data", [])]
+            provider = "openai-compatible"
+        return {"provider": provider, "models": names, "selected": MODEL_NAME}
+    except Exception as exc:
+        raise HTTPException(502, f"Could not discover models: {exc}")
 
 
 @app.post("/api/benchmarks/{benchmark_id}/run-model")
@@ -93,13 +131,18 @@ def run_model(benchmark_id: str):
     item = next((x for x in load_benchmarks() if x["id"] == benchmark_id), None)
     if not item:
         raise HTTPException(404, "Benchmark not found")
-    payload = {"model": "benchmark-client", "messages": [
+    if not MODEL_NAME:
+        raise HTTPException(400, "Select a model in Client settings first.")
+    payload = {"model": MODEL_NAME, "messages": [
         {"role": "system", "content": "Answer only with a comma-separated answer. Do not explain."},
-        {"role": "user", "content": item["prompt"]}], "temperature": 0}
+        {"role": "user", "content": item["prompt"]}], "temperature": 0, "stream": False}
     try:
         request = Request(MODEL_ENDPOINT, data=json.dumps(payload).encode(), headers={"Content-Type": "application/json"}, method="POST")
         response = json.loads(urlopen(request, timeout=45).read())
-        answer = response["choices"][0]["message"]["content"].strip()
+        if "message" in response:
+            answer = response["message"]["content"].strip()
+        else:
+            answer = response["choices"][0]["message"]["content"].strip()
     except Exception as exc:
         raise HTTPException(502, f"Model endpoint failed: {exc}")
     return {"answer": answer, "benchmark_id": benchmark_id}

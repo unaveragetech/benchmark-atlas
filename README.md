@@ -22,6 +22,10 @@ The distributable is `dist/BenchmarkAtlas.exe`. Double-click it to start the loc
 - `GET /api/benchmarks/{id}` — an individual benchmark
 - `POST /api/benchmarks/{id}/score` — score a comma-separated submission: `{"answer":"Mercury, Venus, ..."}`
 
+## Ollama model client
+
+Benchmark Atlas defaults to Ollama at `http://127.0.0.1:11434/api/chat`. Open **Client settings** to automatically discover installed Ollama models, choose one, and save. Settings persist in `%APPDATA%/BenchmarkAtlas/settings.json`. OpenAI-compatible servers are also supported by entering their full chat-completions endpoint.
+
 ## Benchmark repository format
 
 The `benchmarks/` folder is repository-ready: each category has its own directory and a JSONL file with 50 entries. `benchmarks/manifest.json` is the discovery index. The library currently includes History, Science, Geography, Civics, Mathematics, Computing, and Literature (350 questions total). Newer manifest entries may include a `references` array of authoritative sources used to verify the pack.
